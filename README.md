@@ -9,3 +9,6 @@ int	mini_regexec(const char *text, const char *pattern)
 
 
 - [ ] patterns segfault if not [a-z] / [a-Z0-9] / [A-Z0-9a-Z]
+
+
+![output](https://github.com/user-attachments/assets/21aca329-7ab1-49b0-8e41-531934633ec9)
