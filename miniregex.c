@@ -6,7 +6,7 @@
 /*   By: jdpp <jdpp@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 06:04:13 by jdpp              #+#    #+#             */
-/*   Updated: 2024/08/26 06:17:40 by jdpp             ###   ########.fr       */
+/*   Updated: 2024/08/26 07:15:08 by jdpp             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	inside_bracket(const char *pattern, size_t *i)
 	return (res);
 }
 
-int	mini_regexec(const char *text, const char *pattern)
+int	mini_regexec(char *text, char *pattern)
 {
 	size_t	i;
 	int		class;
@@ -119,6 +119,13 @@ int	mini_regexec(const char *text, const char *pattern)
 	class = 0;
 	if (!text || !pattern)
 		return (-1);
+	while (*pattern != '[')
+	{
+		if (*pattern != *text)
+			return (0);
+		pattern++;
+		text++;
+	}
 	if (pattern[i] == '[')
 		class = inside_bracket(pattern, &i);
 	if (class == c_az)
