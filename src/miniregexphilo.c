@@ -10,36 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <ctype.h>
-#include <string.h>
-#include <limits.h>
-
-typedef enum e_class
-{
-	c_null,
-	c_af,
-	c_01,
-	c_07,
-	c_09,
-	c_af09
-}	t_class;
-
-#define BASE_AF 1
-#define BASE_BIN 2
-#define BASE_DEC 4
-#define BASE_OCT 8
-#define BASE_HEX 5
-
-# define BLK "\e[0;30m"
-# define RED "\e[0;31m"
-# define GRN "\e[0;32m"
-# define YEL "\e[0;33m"
-# define BLU "\e[0;34m"
-# define MAG "\e[0;35m"
-# define CYN "\e[0;36m"
-# define CRESET "\e[0m"
+#include "miniregex.h"
 
 int	ft_strlen(const char *str)
 {
@@ -54,7 +25,7 @@ int	ft_strlen(const char *str)
 }
 
 // 0 = noprefix 0b = 1 0 = 2 0x = 3
-static int	find_prefix(char *str)
+int	find_prefix(char *str)
 {
 	if (!str)
 		return (0);
@@ -83,9 +54,10 @@ static size_t	skip_prefix(char *str)
 	}
 	return (0);
 }
+
 int	ft_charbase_toint(char c, char *base)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (base[i] != '\0')
@@ -102,9 +74,9 @@ int	ft_atoi_base_positive(char *str, char *base)
 	size_t		i;
 	long long	result;
 	size_t		base_len;
+
 	result = 0;
 	i = 0;
-
 	i = skip_prefix(str);
 	base_len = ft_strlen(base);
 	if (!str || !base || base_len <= 0)
@@ -123,6 +95,7 @@ int	ft_atoi_base_positive(char *str, char *base)
 	}
 	return (result);
 }
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	j;
@@ -180,10 +153,10 @@ bool	parse_text_two(const char *text, int (*ischeck)(int), int (*ischeck2)(int))
 
 int	inside_bracket(const char *pattern)
 {
-	int	res;
+	int		res;
 	size_t	i;
-	res = 0;
 
+	res = 0;
 	i = 1;
 	while (pattern[i])
 	{
@@ -211,32 +184,10 @@ int	inside_bracket(const char *pattern)
 	return (res);
 }
 
-int	isbase_binary(int c)
-{
-	return (c == '0' || c == '1');
-}
-
-int	isbase_hex(int c)
-{
-	return ((c >= 'a' && c <= 'f') || (c >= '0' && c <= '9') );
-}
-
-int	isbase_oct(int c)
-{
-	return (c >= '0' && c <= '7');
-}
-
-int	isbase_digit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
 int	mini_regexec(char *text, char *pattern)
 {
-	size_t	i;
 	int		class;
 
-	i = 0;
 	class = 0;
 	if (!text || !pattern)
 		return (-1);
@@ -260,7 +211,7 @@ int	mini_regexec(char *text, char *pattern)
 	return (0);
 }
 
-static void	ft_strtolower(char *str)
+void	ft_strtolower(char *str)
 {
 	size_t	i;
 
@@ -274,23 +225,3 @@ static void	ft_strtolower(char *str)
 		i++;
 	}
 }
-int	main(int argc, char **argv)
-{
-	char	patterns1[4][100] = {"[0-9]", "0b[0-1]", "0[0-7]", "0x[a-f0-9]"};
-	char	base[4][100] = {"0123456789", "01", "01234567", "0123456789abcdef"};
-	int		prefix;
-
-	if (argc != 2)
-		return (0);
-	prefix = find_prefix(argv[1]);
-	ft_strtolower(argv[1]);
-	printf("PAT:\t%s\n", patterns1[prefix]);
-	if (mini_regexec(argv[1], patterns1[prefix]))
-		printf(GRN"OK:\t%s\n"CRESET, argv[1]);
-	else
-		printf(RED"NOK:\t%s\n"CRESET, argv[1]);
-	printf("DEC:\t%d\n", ft_atoi_base_positive(argv[1], base[prefix]));
-	return (0);
-}
-
-//const char *patterns2 = "[a-zA-Z0-9]+[@][a-z0-9]";

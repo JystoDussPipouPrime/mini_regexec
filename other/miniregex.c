@@ -144,19 +144,3 @@ int	mini_regexec(char *text, char *pattern)
 		return (parse_text_two(text, isdigit, isalpha));
 	return (0);
 }
-
-int	main(int argc, char **argv)
-{
-	const char	*patterns1 = "[a-za-ZA-Z0-9]";
-
-	if (argc != 2)
-		return (0);
-	printf("Pattern: %s\n", patterns1);
-	if (mini_regexec(argv[1], patterns1))
-		printf("Match found: %s\n", argv[1]);
-	else
-		printf("No match: %s\n", argv[1]);
-	return (0);
-}
-
-//const char *patterns2 = "[a-zA-Z0-9]+[@][a-z0-9]";
