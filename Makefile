@@ -1,4 +1,4 @@
-NAME	= miniregex
+NAME	= miniregex.exe
 CC		= cc
 RM		= rm -f
 FLAGS	= -g3 -Wall -Werror -Wextra -pthread -I $(INC_DIR)
