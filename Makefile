@@ -5,8 +5,11 @@ FLAGS	= -g3 -Wall -Werror -Wextra -pthread -I $(INC_DIR)
 HDR		= miniregex.h
 
 SRC_1	=	src/main.c \
-			src/miniregexphilo.c \
-			src/isbase_valid.c
+			src/mini_regex.c \
+			src/isbase_valid.c \
+			src/ft_atoi_base_positive.c \
+			src/utils_prefix.c \
+			src/utils_str.c
 
 INC_DIR = inc/
 SRC_DIR = src

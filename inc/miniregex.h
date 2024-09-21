@@ -14,7 +14,6 @@
 # define MINIREGEX_H
 
 # include <stdio.h>
-# include <stdbool.h>
 # include <ctype.h>
 # include <string.h>
 # include <limits.h>
@@ -34,14 +33,20 @@
 # define CYN "\e[0;36m"
 # define CRESET "\e[0m"
 
-
 int		isbase_binary(int c);
 int		isbase_hex(int c);
 int		isbase_oct(int c);
 int		isbase_digit(int c);
-int		find_prefix(char *str);
-void	ft_strtolower(char *str);
-int		mini_regexec(char *text, char *pattern);
+
 int		ft_atoi_base_positive(char *str, char *base);
+char	*find_base(char *str);
+size_t	skip_prefix(char *str);
+
+size_t	ft_strlen(const char *str);
+void	ft_strtolower(char *str);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strnchr(const char *s, int c, size_t n);
+
+int		mini_regexec(char *text, char *pattern);
 
 #endif
