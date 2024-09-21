@@ -62,7 +62,7 @@ int	inside_bracket(const char *pattern)
 	return (res);
 }
 
-int	mini_regexec(char *text, char *pattern)
+int	mini_regex(char *text, char *pattern)
 {
 	int		class;
 

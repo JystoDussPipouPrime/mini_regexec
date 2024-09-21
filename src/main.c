@@ -17,13 +17,13 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (printf(RED"./mini_regex <num>\n"CRESET), 0);
 	ft_strtolower(argv[1]);
-	if (mini_regexec(argv[1], "[0-9]"))
+	if (mini_regex(argv[1], "[0-9]"))
 		printf(GRN"OK:\t%s\n"CRESET, argv[1]);
-	else if (mini_regexec(argv[1], "0b[0-1]"))
+	else if (mini_regex(argv[1], "0b[0-1]"))
 		printf(GRN"OK:\t%s\n"CRESET, argv[1]);
-	else if (mini_regexec(argv[1], "0[0-7]"))
+	else if (mini_regex(argv[1], "0[0-7]"))
 		printf(GRN"OK:\t%s\n"CRESET, argv[1]);
-	else if (mini_regexec(argv[1], "0x[a-f0-9]"))
+	else if (mini_regex(argv[1], "0x[a-f0-9]"))
 		printf(GRN"OK:\t%s\n"CRESET, argv[1]);
 	else
 	{
