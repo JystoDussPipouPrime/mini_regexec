@@ -13,10 +13,8 @@
 #ifndef MINIREGEX_H
 # define MINIREGEX_H
 
-# include <stdio.h>
-# include <ctype.h>
-# include <string.h>
-# include <limits.h>
+# include <stdio.h> //
+# include <stdlib.h>
 
 # define BASE_AF 1
 # define BASE_BIN 2
@@ -47,6 +45,6 @@ void	ft_strtolower(char *str);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strnchr(const char *s, int c, size_t n);
 
-int		mini_regexec(char *text, char *pattern);
+int		mini_regex(char *text, char *pattern);
 
 #endif
