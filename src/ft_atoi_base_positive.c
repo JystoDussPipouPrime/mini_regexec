@@ -40,12 +40,12 @@ int	ft_atoi_base_positive(char *str, char *base)
 		return (-1);
 	while (str[i])
 	{
-		if (result * base_len > INT_MAX || result < 0)
+		if (result * base_len > 2147483647 || result < 0)
 			return (-1);
 		result *= base_len;
 		if (ft_charbase_toint(str[i], base) == -1)
 			return (-1);
-		if (result + ft_charbase_toint(str[i], base) > INT_MAX || result < 0)
+		if (result + ft_charbase_toint(str[i], base) > 2147483647 || result < 0)
 			return (-1);
 		result += ft_charbase_toint(str[i], base);
 		i++;
