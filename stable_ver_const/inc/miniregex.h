@@ -23,7 +23,7 @@
 # define SPACE 4
 
 
-# define P_BIN			"[bin]"
+# define P_BIN			"[0-1]"
 # define P_DEC			"[0-9]"
 # define P_HEX			"[0-f]"
 # define P_OCT			"[0-7]"
