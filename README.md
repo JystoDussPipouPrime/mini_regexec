@@ -1,20 +1,20 @@
-# int	mini_regexec(const char *text, const char *pattern)
+# int	mini_regex(const char *text, const char *pattern)
 
 **NAME**  
           *mini_regex* - look alike regex functions
 
 **SYNOPSIS**  
        #include "mini_regex.h"  
-       int mini_regexec(const char *text, const char *pattern)
+       int mini_regex(const char *text, const char *pattern)
 
 **DESCRIPTION**  
        .
 
 **MATCHING**  
-       *mini_regexec()* is used to match a null-terminated string against a null-terminated pattern.
+       *mini_regex()* is used to match a null-terminated string against a null-terminated pattern.
 
 **RETURN VALUE**  
-       *mini_regexec()* returns zero for a successful match or 0 for failure.
+       *mini_regex()* returns zero for a successful match or 0 for failure.
 
 **HISTORY**  
 - [ ] NULL PARAMETERS PROTECTION
