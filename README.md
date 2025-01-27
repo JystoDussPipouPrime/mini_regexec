@@ -8,19 +8,15 @@
        int mini_regex(const char *text, const char *pattern)
 
 **DESCRIPTION**  
-       .
-
-**MATCHING**  
        *mini_regex()* is used to match a null-terminated string against a null-terminated pattern.
 
 **RETURN VALUE**  
        *mini_regex()* returns zero for a successful match or 0 for failure.
 
-**HISTORY**  
-- [ ] NULL PARAMETERS PROTECTION
-
 **CAVEATS**  
-       .
+       Can't support a pattern that is not exactly 5 characters long  
+       can be very dangerous if pattern is poorly written.  
+       Segfault if parameters is NULL.  
 
 **EXAMPLES**  
 
@@ -61,10 +57,6 @@
               return (0);
        }
 
-**SEE ALSO**  
-       .
-
-
 ## SPECIFIC PATTERNS SUPPORTED
 
 | Desc.                 | Pattern | Example      |
@@ -87,3 +79,9 @@
 | `  NO  ./xpm/north.xpm`      | `^NO[^^^][./t]`               |
 | `  F 101,  21,  97    `      | `"^F^[0-9]^,^[0-9]^,^[0-9]^"` |
 | `  us3r.n4mE@d0m41n.com    ` | `"[a0Z].[a0Z]@[a0Z].[a-z]"`   |
+
+**TODO**  
+- [ ] NULL PARAMETERS PROTECTION  
+- [ ] pattern with differents length :shipit:  
+- [ ] make a step-by-step implementation  
+- [ ] explain how to implement extra patterns  
