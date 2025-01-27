@@ -19,9 +19,9 @@ int	inside_bracket(const char *tt, const char *pp, size_t *t, size_t *p)
 	is_found = 0;
 	while (pp[*p] == '[')
 	{
-		if (pattern_match_base(tt, pp, t, p)
-		|| pattern_match_alpha(tt, pp, t, p)
-		|| pattern_match_cub(tt, pp, t, p))
+		if (pattern_matchbase(tt, pp, t, p)
+			|| pattern_matchalp(tt, pp, t, p)
+			|| pattern_matchcub(tt, pp, t, p))
 			is_found = 1;
 		if (!is_found)
 			return (EXIT_FAILURE);
@@ -40,7 +40,7 @@ int	mini_regex(const char *text, const char *pattern)
 	while (pattern[p] != '\0' && text[t] != '\0')
 	{
 		if (pattern_read(text, pattern, &t, &p))
-			return (0);		
+			return (0);
 		if (pattern[p] == '^')
 			pattern_jump_space(text, &t, &p);
 		else
@@ -51,7 +51,7 @@ int	mini_regex(const char *text, const char *pattern)
 				t++;
 			}
 			else
-				return (0);		
+				return (0);
 		}
 	}
 	if ((pattern[p] == '\0' && text[t] == '\0'))

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "miniregex.h"
+#include <stdio.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -24,25 +25,15 @@ size_t	ft_strlen(const char *str)
 
 int	main(void)
 {
-	size_t	t;
-	size_t	p;
-	const char *pattern[] = 
-	{
-		"[^^^][0-9]\0",
-		// "[0-9]\0",
-		NULL
-	};
-	const char *text[] =
-	{
-		"   1234\0",
-		"1232222\0",
-		NULL
-	};
+	size_t		t;
+	size_t		p;
+	const char	*pattern[] = {"[^^^][0-9]\0", "[0-9]\0", NULL};
+	const char	*text[] = {"   1234\0", "1232222\0", NULL};
+
 	p = 0;
 	while (pattern[p])
 	{
 		t = 0;
-			printf("%s\n", pattern[p]);
 		while (text[t])
 		{
 			if (mini_regex(text[t], pattern[p]))

@@ -15,13 +15,6 @@
 
 # include <stdlib.h>
 # include <stdbool.h>
-#include <stdio.h>
-
-# define FILENAME 1
-# define WALLS 2
-# define BOTH 3
-# define SPACE 4
-
 
 # define P_BIN			"[0-1]"
 # define P_DEC			"[0-9]"
@@ -50,7 +43,6 @@ int		is_upper(int c);
 int		is_alpha(int c);
 int		is_alpha_digit(int c);
 
-
 int		ft_atoi_base_positive(char *str, char *base);
 char	*find_base(char *str);
 size_t	skip_prefix(char *str);
@@ -60,13 +52,13 @@ void	ft_strtolower(char *str);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strnchr(const char *s, int c, size_t n);
 
-int		pattern_read(const char *text, const char *pattern, size_t *t, size_t *p);
+int		pattern_read(const char *tt, const char *pp, size_t *t, size_t *p);
 void	pattern_jump(const char *text, size_t *t, int (*is_check)(int));
 int		pattern_jump_step(const char *text, size_t *t, int (*is_check)(int));
 void	pattern_jump_space(const char *text, size_t *t, size_t *p);
-int		pattern_match_base(const char *tt, const char *pp, size_t *t, size_t *p);
-int		pattern_match_alpha(const char *tt, const char *pp, size_t *t, size_t *p);
-int		pattern_match_cub(const char *tt, const char *pp, size_t *t, size_t *p);
+int		pattern_matchbase(const char *tt, const char *pp, size_t *t, size_t *p);
+int		pattern_matchalp(const char *tt, const char *pp, size_t *t, size_t *p);
+int		pattern_matchcub(const char *tt, const char *pp, size_t *t, size_t *p);
 
 int		inside_bracket(const char *tt, const char *pp, size_t *t, size_t *p);
 

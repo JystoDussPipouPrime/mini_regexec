@@ -12,7 +12,7 @@
 
 #include "miniregex.h"
 
-int pattern_match_base(const char *tt, const char *pp, size_t *t, size_t *p)
+int	pattern_matchbase(const char *tt, const char *pp, size_t *t, size_t *p)
 {
 	size_t	step;
 
@@ -28,7 +28,7 @@ int pattern_match_base(const char *tt, const char *pp, size_t *t, size_t *p)
 	return (step);
 }
 
-int pattern_match_alpha(const char *tt, const char *pp, size_t *t, size_t *p)
+int	pattern_matchalp(const char *tt, const char *pp, size_t *t, size_t *p)
 {
 	size_t	step;
 
@@ -44,7 +44,7 @@ int pattern_match_alpha(const char *tt, const char *pp, size_t *t, size_t *p)
 	return (step);
 }
 
-int pattern_match_cub(const char *tt, const char *pp, size_t *t, size_t *p)
+int	pattern_matchcub(const char *tt, const char *pp, size_t *t, size_t *p)
 {
 	size_t	step;
 

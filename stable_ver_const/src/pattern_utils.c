@@ -12,10 +12,10 @@
 
 #include "miniregex.h"
 
-int	pattern_read(const char *text, const char *pattern, size_t *t, size_t *p)
+int	pattern_read(const char *tt, const char *pp, size_t *t, size_t *p)
 {
-	if (pattern[*p] == '[')
-		if (inside_bracket(text, pattern, t, p))
+	if (pp[*p] == '[')
+		if (inside_bracket(tt, pp, t, p))
 			return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
