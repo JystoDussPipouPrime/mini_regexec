@@ -1,7 +1,7 @@
 NAME =	miniregex.a
 CC		= cc
 RM		= rm -f
-CFLAGS =	-Wall -Wextra -Werror -g3
+CFLAGS =	-Wall -Wextra -Werror -g3 -I $(INC_DIR)
 DFLAGS =	-MMD -MP
 
 INC_DIR = inc/
@@ -20,7 +20,7 @@ DEPS = $(OBJ:.o=.d)
 
 all: $(NAME)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile| $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
