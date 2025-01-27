@@ -1,21 +1,20 @@
 # int	mini_regexec(const char *text, const char *pattern)
 
 **NAME**  
-       **mini_regex** - look alike regex functions
+          *mini_regex* - look alike regex functions
 
 **SYNOPSIS**  
-
-       #include "mini_regex.h"
+       #include "mini_regex.h"  
        int mini_regexec(const char *text, const char *pattern)
 
 **DESCRIPTION**  
        .
 
 **MATCHING**  
-       **mini_regexec()** is used to match a null-terminated string against a null-terminated pattern.
+       *mini_regexec()* is used to match a null-terminated string against a null-terminated pattern.
 
 **RETURN VALUE**  
-       **mini_regexec()** returns zero for a successful match or 0 for failure.
+       *mini_regexec()* returns zero for a successful match or 0 for failure.
 
 **HISTORY**  
 - [ ] NULL PARAMETERS PROTECTION
@@ -30,36 +29,36 @@
 
        int main(void)
        {
-       size_t       t;
-       size_t       p;
-       const char *pattern[] = 
-       {
-              "[^^^][0-9]\0",
-              // "[0-9]\0",
-              NULL
-       };
-       const char *text[] =
-       {
-              "   1234\0",
-              "1232222\0",
-              NULL
-       };
-       p = 0;
-       while (pattern[p])
-       {
-              t = 0;
-                     printf("%s\n", pattern[p]);
-              while (text[t])
+              size_t       t;
+              size_t       p;
+              const char *pattern[] = 
               {
-                     if (mini_regex(text[t], pattern[p]))
-                            printf("OK:\t%s\n", text[t]);
-                     else
-                            printf("NOK:\t%s\n", text[t]);
-                     t++;
+                     "[^^^][0-9]\0",
+                     "[0-9]\0",
+                     NULL
+              };
+              const char *text[] =
+              {
+                     "   1234\0",
+                     "1232222\0",
+                     NULL
+              };
+              p = 0;
+              while (pattern[p])
+              {
+                     t = 0;
+                            printf("%s\n", pattern[p]);
+                     while (text[t])
+                     {
+                            if (mini_regex(text[t], pattern[p]))
+                                   printf("OK:\t%s\n", text[t]);
+                            else
+                                   printf("NOK:\t%s\n", text[t]);
+                            t++;
+                     }
+                     p++;
               }
-              p++;
-       }
-       return (0);
+              return (0);
        }
 
 **SEE ALSO**  
