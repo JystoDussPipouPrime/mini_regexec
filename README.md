@@ -1,6 +1,54 @@
 ### int	mini_regexec(const char *text, const char *pattern)
+#### RETURN VALUE
+		NULL parameter: -1
+		text matches the pattern : 1
+		text don't matches the pattern : 1
+## SPECIFIC PATTERNS SUPPORTED
 
+| Desc.                 | Pattern | Example      |
+|-----------------------|---------|--------------|
+| Binary                | `[0-1]` | `1101`       |
+| Octal                 | `[0-7]` | `052`        |
+| Decimal               | `[0-9]` | `123`        |
+| Lowercase             | `[a-z]` | `test`       |
+| Uppercase             | `[A-Z]` | `TEST`       |
+| Alpha                 | `[a-Z]` | `Test`       |
+| Alpha & Num           | `[a0Z]` | `T3st`       |
+| Filename              | `[./t]` | `./T3st.txt` |
+| MAP_border            | `[^1^]` | ` 111 `      |
+| MAP_inside            | `[0N1]` | `100E001`    |
+| whitespace            | `[^^^]` | `      `     |
+| Optional whitespace   | `^`     | ` `          |
 
+| Example                      | Pattern                       |
+|------------------------------|-------------------------------|
+| `  NO  ./xpm/north.xpm`      | `^NO[^^^][./t]`               |
+| `  F 101,  21,  97    `      | `"^F^[0-9]^,^[0-9]^,^[0-9]^"` |
+| `  us3r.n4mE@d0m41n.com    ` | `"[a0Z].[a0Z]@[a0Z].[a-z]"`   |
+
+#### USAGE
+		if (mini_regexec(text, "^[0-1]^"))
+			return (EXIT_SUCCESS);
+
+/
+
+/
+
+/
+
+/
+
+/
+
+/
+
+/
+
+/
+
+/
+
+### ./stable_ver
 #### RETURN VALUE
 		NULL parameter: -1
 		text matches the pattern : 1
