@@ -41,7 +41,7 @@ int	mini_regex(const char *text, const char *pattern)
 	{
 		if (pattern_read(text, pattern, &t, &p))
 			return (0);
-		if (pattern[p] == '^')
+		else if (pattern[p] == '^')
 			pattern_jump_space(text, &t, &p);
 		else
 		{

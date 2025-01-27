@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_regex.c //                                    :+:      :+:    :+:   */
+/*   pattern_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcurto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -30,9 +30,7 @@ int	pattern_jump_step(const char *text, size_t *t, int (*is_check)(int))
 		(*t)++;
 		step++;
 	}
-	if (step == 0)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	return (step);
 }
 
 void	pattern_jump_space(const char *text, size_t *t, size_t *p)
