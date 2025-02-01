@@ -5,9 +5,11 @@ RM		= rm -f
 CFLAGS =	-Wall -Wextra -Werror -g3 -I $(INC_DIR)
 DFLAGS =	-MMD -MP
 
-INC_DIR = inc/
-SRC_DIR = src/
-OBJ_DIR = obj/
+P_DIR = portable_ver_const/
+
+INC_DIR = $(P_DIR)inc/
+SRC_DIR = $(P_DIR)src/
+OBJ_DIR = $(P_DIR)obj/
 
 SRC	=		$(SRC_DIR)mini_regex.c \
 			$(SRC_DIR)isbase_valid.c \
@@ -42,7 +44,7 @@ re: fclean all
 fclean : clean
 	$(RM) $(NAME)
 	$(RM) $(NAME_EXE)
-	$(RM) -r $(OBJ_DIR)
+	@make fclean -sC $(P_DIR)
 
 clean:
 	$(RM) $(OBJ) $(DEPS)
