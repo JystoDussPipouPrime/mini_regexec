@@ -25,7 +25,6 @@ int	inside_bracket(const char *tt, const char *pp, size_t *t, size_t *p)
 			is_found = 1;
 		if (!is_found)
 			return (EXIT_FAILURE);
-		(*p) += 5;
 	}
 	return (EXIT_SUCCESS);
 }

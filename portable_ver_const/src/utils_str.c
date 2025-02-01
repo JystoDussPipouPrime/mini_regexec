@@ -53,19 +53,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-void	ft_strtolower(char *str)
+size_t	ft_patternlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	if (!str)
-		return ;
 	while (str[i])
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
 		i++;
-	}
+	return (i);
 }
 
 char	*ft_strnchr(const char *s, int c, size_t n)

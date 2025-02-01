@@ -27,7 +27,7 @@
 # define P_FILENAME		"[./t]"
 # define P_MAP_BORDER	"[^1^]"
 # define P_MAP_INSIDE	"[0N1]"
-# define P_SPACE		"[^^^]"
+# define P_SPACE		"[^]"
 
 int		isbase_binary(int c);
 int		isbase_hex(int c);
@@ -48,7 +48,7 @@ char	*find_base(char *str);
 size_t	skip_prefix(char *str);
 
 size_t	ft_baselen(const char *str);
-void	ft_strtolower(char *str);
+size_t	ft_patternlen(const char *str);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strnchr(const char *s, int c, size_t n);
 
