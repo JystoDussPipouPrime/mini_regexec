@@ -66,45 +66,45 @@ bool	parse_text_one(const char *text, int (*ischeck)(int))
 	return (true);
 }
 
-bool	parse_text_two(const char *text, int (*ischeck)(int), int (*ischeck2)(int))
+bool	parse_text_two(const char *t, int (*ischeck)(int), int (*ischeck2)(int))
 {
 	size_t	i;
 
 	i = 0;
-	while (text[i])
+	while (t[i])
 	{
-		if (!ischeck(text[i]) && !ischeck2(text[i]))
+		if (!ischeck(t[i]) && !ischeck2(t[i]))
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-int	inside_bracket(const char *pattern, size_t *i)
+int	inside_bracket(const char *pp, size_t *i)
 {
 	int	res;
 
 	res = 0;
 	(*i)++;
-	while (pattern[*i])
+	while (pp[*i])
 	{
-		if (pattern[*i] && pattern[*i + 1] && pattern[*i + 2])
+		if (pp[*i] && pp[*i + 1] && pp[*i + 2])
 		{
-			if (pattern[*i] != '[' && pattern[*i + 1] != '[' && pattern[*i + 2] != '[')
+			if (pp[*i] != '[' && pp[*i + 1] != '[' && pp[*i + 2] != '[')
 			{
-				if (pattern[*i] != ']' && pattern[*i + 1] != ']' && pattern[*i + 2] != ']')
+				if (pp[*i] != ']' && pp[*i + 1] != ']' && pp[*i + 2] != ']')
 				{
-					if (ft_strnstr(pattern + *i, "a-z", 3))
+					if (ft_strnstr(pp + *i, "a-z", 3))
 						res += 1;
-					else if (ft_strnstr(pattern + *i, "A-Z", 3))
+					else if (ft_strnstr(pp + *i, "A-Z", 3))
 						res += 2;
-					else if (ft_strnstr(pattern + *i, "0-9", 3))
+					else if (ft_strnstr(pp + *i, "0-9", 3))
 						res += 4;
 					(*i) += 3;
 				}
 			}
 		}
-		if (pattern[*i] == ']' )
+		if (pp[*i] == ']')
 			return (res);
 	}
 	return (res);
