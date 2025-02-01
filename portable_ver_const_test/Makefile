@@ -1,4 +1,5 @@
 NAME =	miniregex.a
+NAME_EXE =	test.exe
 CC		= cc
 RM		= rm -f
 CFLAGS =	-Wall -Wextra -Werror -g3 -I $(INC_DIR)
@@ -34,11 +35,13 @@ $(OBJ_DIR):
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) -o $(OBJ)
+	$(CC) $(CFLAGS) main.c ./miniregex.a -o test.exe
 
 re: fclean all
 
 fclean : clean
 	$(RM) $(NAME)
+	$(RM) $(NAME_EXE)
 	$(RM) -r $(OBJ_DIR)
 
 clean:
