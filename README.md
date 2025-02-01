@@ -14,7 +14,6 @@
        *mini_regex()* returns zero for a successful match or 0 for failure.
 
 **CAVEATS**  
-       Can't support a pattern that is not exactly 5 characters long  
        can be very dangerous if pattern is poorly written.  
        Segfault if parameters is NULL.  
 
@@ -82,6 +81,6 @@
 
 **TODO**  
 - [ ] NULL PARAMETERS PROTECTION  
-- [ ] pattern with differents length :shipit:  
+- [x] pattern with differents length :shipit:  
 - [ ] make a step-by-step implementation  
 - [ ] explain how to implement extra patterns  
