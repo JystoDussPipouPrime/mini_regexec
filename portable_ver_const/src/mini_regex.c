@@ -36,7 +36,7 @@ int	mini_regex(const char *text, const char *pattern)
 
 	t = 0;
 	p = 0;
-	while (pattern[p] != '\0' && text[t] != '\0')
+	while (text && pattern && pattern[p] != '\0' && text[t] != '\0')
 	{
 		if (pattern_read(text, pattern, &t, &p))
 			return (0);
@@ -53,7 +53,7 @@ int	mini_regex(const char *text, const char *pattern)
 				return (0);
 		}
 	}
-	if ((pattern[p] == '\0' && text[t] == '\0'))
+	if (text && pattern && (pattern[p] == '\0' && text[t] == '\0'))
 		return (1);
 	return (0);
 }

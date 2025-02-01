@@ -26,7 +26,7 @@ int	main(void)
 		t = 0;
 		while (text[t])
 		{
-			if (mini_regex(text[t], pattern[p]))
+			if (mini_regex(NULL, NULL))
 				printf("\e[0;32mOK:\t%s\n\e[0m", text[t]);
 			else
 				printf("\e[0;31mNOK:\t%s\n\e[0m", text[t]);

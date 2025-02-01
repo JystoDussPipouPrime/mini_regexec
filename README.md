@@ -15,7 +15,6 @@
 
 **CAVEATS**  
        can be very dangerous if pattern is poorly written.  
-       Segfault if parameters is NULL.  
 
 **EXAMPLES**  
 
@@ -80,7 +79,7 @@
 | `  us3r.n4mE@d0m41n.com    ` | `"[a0Z].[a0Z]@[a0Z].[a-z]"`   |
 
 **TODO**  
-- [ ] NULL PARAMETERS PROTECTION  
+- [x] NULL PARAMETERS PROTECTION  
 - [x] pattern with differents length :shipit:  
 - [ ] make a step-by-step implementation  
 - [ ] explain how to implement extra patterns  
