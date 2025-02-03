@@ -10,6 +10,7 @@ P_DIR = portable_ver_const/
 INC_DIR = $(P_DIR)inc/
 SRC_DIR = $(P_DIR)src/
 OBJ_DIR = $(P_DIR)obj/
+SRC_MAIN_DIR = ./
 
 SRC	=		$(SRC_DIR)mini_regex.c \
 			$(SRC_DIR)isbase_valid.c \
@@ -20,6 +21,8 @@ SRC	=		$(SRC_DIR)mini_regex.c \
 			$(SRC_DIR)pattern.c \
 			$(SRC_DIR)pattern_utils.c \
 			$(SRC_DIR)isbase_alpha_digit.c
+
+SRC_MAIN = main.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
@@ -35,9 +38,9 @@ $(OBJ_DIR):
 
 -include $(DEPS)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(SRC_MAIN)
 	ar -rcs $(NAME) -o $(OBJ)
-	$(CC) $(CFLAGS) main.c ./miniregex.a -o test.exe
+	$(CC) $(CFLAGS) $(SRC_MAIN) ./miniregex.a -o test.exe
 
 re: fclean all
 
