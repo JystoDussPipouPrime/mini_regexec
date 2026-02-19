@@ -1,0 +1,49 @@
+NAME =	libminiregex.a
+CC		= cc
+RM		= rm -f
+CFLAGS =	-Wall -Wextra -g3 -I$(INC_DIR)
+DFLAGS =	-MMD -MP
+
+INC_DIR = inc/
+SRC_DIR = src/
+OBJ_DIR = obj/
+
+SRC	=		$(SRC_DIR)mini_regex.c \
+			$(SRC_DIR)isvalue_valid.c \
+			$(SRC_DIR)ft_atoi_base_positive.c \
+			$(SRC_DIR)utils_str.c \
+			$(SRC_DIR)utils_prefix.c \
+			$(SRC_DIR)pattern.c \
+			$(SRC_DIR)pattern_utils.c \
+
+
+OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
+
+DEPS = $(OBJ:.o=.d)
+
+all: $(NAME)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+-include $(DEPS)
+
+$(NAME): $(OBJ) main.cpp
+	ar -rcs $(NAME) $(OBJ)
+# DELME////////////////
+	c++ main.cpp -Iinc -L. -lminiregex -o main 
+# ////////////////
+
+re: fclean all
+
+fclean : clean
+	$(RM) $(NAME)
+	$(RM) -r $(OBJ_DIR)
+
+clean:
+	$(RM) $(OBJ) $(DEPS)
+
+.PHONY: all re fclean clean
